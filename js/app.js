@@ -69,12 +69,17 @@ var PegSolitaire = (function() {
 		 * Reinicia o jogo, resetando jogadas, pontuação e streak
 		 */
 		restartGame : function() {
-			divMovements.innerHTML = "0";
+            divMovements.innerHTML = "0";
 			divPoints.innerHTML = "0";
 			divStreak.innerHTML = "0";
 			Helper.removeClass(divStreak, "visible");
             Helper.removeClass(boardContainer, "blocked");
             map = [];
+            points = 0;
+		    movements = 0;
+		    streak = 1;
+            activePin = null;
+            gameOver = true;
 			
 			// Chama o 'construtor' novamente para remontar o tabuleiro
 			Public.init();
