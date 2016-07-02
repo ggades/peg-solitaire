@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Resta um (Peg Solitaire)</title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Resta um (Peg Solitaire)</h1>
+			<div class="container-left pull-left relative">
+				<div class="options-panel pull-left">
+					<button class="restart-game" onclick="PegSolitaire.restartGame()">Reiniciar jogo</button>
+					<div class="stat-counter relative">
+						<div>Nº de jogadas:</div>
+						<div class="counter"><strong id="totalMovements">0</strong></div>
+					</div>
+					<div class="stat-counter relative">
+						<div>Pontos:</div>
+						<div class="counter"><strong id="totalPoints">0</strong></div>
+						<div class="streak absolute" id="streak">x2</div>
+					</div>
+				</div>
+				<div id="message" class="absolute"></div>
+				<div id="boardContainer" class="pull-left relative"></div>
+			</div>
+			<div class="container-right pull-right">
+				<div class="instructions">
+					<h2>Instruções:</h2>
+					<ul>
+						<li>1) Clique sobre a peça sobre a qual deseja mover;</li>
+						<li>2) Clique no local para onde deseja mover a peça selecionada;</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- JS -->
+		<script type="text/javascript" src="js/helper.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+	</body>
+</html>

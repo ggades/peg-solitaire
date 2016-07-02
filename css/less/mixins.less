@@ -1,0 +1,150 @@
+/********************
+ * Metodos (mixins) *
+ ********************/
+.radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+		 -moz-border-radius: @radius;
+			-ms-border-radius: @radius;
+			 -o-border-radius: @radius;
+				border-radius: @radius;
+}
+.radius-top-left(@radius: 5px) {
+	-webkit-border-top-left-radius: @radius;
+			-moz-border-radius-topleft: @radius;
+			-ms-border-top-left-radius: @radius;
+			 -o-border-top-left-radius: @radius;
+					border-top-left-radius: @radius;
+}
+.radius-top-right(@radius: 5px) {
+	-webkit-border-top-right-radius: @radius;
+			-moz-border-radius-topright: @radius;
+			-ms-border-top-right-radius: @radius;
+			 -o-border-top-right-radius: @radius;
+					border-top-right-radius: @radius;
+}
+.radius-bottom-left(@radius: 5px) {
+	-webkit-border-bottom-left-radius: @radius;
+			-moz-border-radius-bottomleft: @radius;
+			-ms-border-bottom-left-radius: @radius;
+			 -o-border-bottom-left-radius: @radius;
+					border-bottom-left-radius: @radius;
+}
+.radius-bottom-right(@radius: 5px) {
+	-webkit-border-bottom-right-radius: @radius;
+			-moz-border-radius-bottomright: @radius;
+			-ms-border-bottom-right-radius: @radius;
+			 -o-border-bottom-right-radius: @radius;
+					border-bottom-right-radius: @radius;
+}
+.radius-top(@radius: 5px) {
+	.radius-top-right(@radius);
+	.radius-top-left(@radius);
+}
+.radius-right(@radius: 5px) {
+	.radius-top-right(@radius);
+	.radius-bottom-right(@radius);
+}
+.radius-bottom(@radius: 5px) {
+	.radius-bottom-right(@radius);
+	.radius-bottom-left(@radius);
+}
+.radius-left(@radius: 5px) {
+	.radius-top-left(@radius);
+	.radius-bottom-left(@radius);
+}
+.box-shadow(@h-shadow:2px, @v-shadow:2px, @blur:3px, @spread:0px, @color-shadow:#666){
+	box-shadow:@h-shadow @v-shadow @blur @spread @color-shadow;
+	-webkit-box-shadow:@h-shadow @v-shadow @blur @spread @color-shadow;
+	-moz-box-shadow:@h-shadow @v-shadow @blur @spread @color-shadow;
+	-o-box-shadow:@h-shadow @v-shadow @blur @spread @color-shadow;
+	-ms-box-shadow:@h-shadow @v-shadow @blur @spread @color-shadow;
+}
+.gradient(@direction:left, @start-color:#FFF, @middle-color:#967A20, @end-color:#FFF){
+    background: -webkit-linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    background: -moz-linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    background: -o-linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    background: -ms-linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    background: linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start-color}', EndColorStr='@{middle-color}');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start-color}', EndColorStr='@{middle-color}')";
+}
+.gradient(@direction:left, @start-color:#FFF, @middle-color:#967A20, @end-color:#FFF) when (@direction = left){
+    background: -webkit-linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    background: -moz-linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    background: -o-linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    background: -ms-linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    background: linear-gradient(@direction, @start-color, @middle-color, @end-color);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start-color}', EndColorStr='@{middle-color}', GradientType=1);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start-color}', EndColorStr='@{middle-color}', GradientType=1)";
+}
+.gradient-simple(@direction:left, @start-color:#FFF, @end-color:#FFF) when (@direction = left){
+    background: -webkit-linear-gradient(@direction, @start-color, @end-color);
+    background: -moz-linear-gradient(@direction, @start-color, @end-color);
+    background: -o-linear-gradient(@direction, @start-color, @end-color);
+    background: -ms-linear-gradient(@direction, @start-color, @end-color);
+    background: linear-gradient(@direction, @start-color, @end-color);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start-color}', EndColorStr='@{end-color}', GradientType=1);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start-color}', EndColorStr='@{end-color}', GradientType=1)";
+}
+.gradient-simple(@direction:left, @start-color:#FFF, @end-color:#FFF){
+    background: -webkit-linear-gradient(@direction, @start-color, @end-color);
+    background: -moz-linear-gradient(@direction, @start-color, @end-color);
+    background: -o-linear-gradient(@direction, @start-color, @end-color);
+    background: -ms-linear-gradient(@direction, @start-color, @end-color);
+    background: linear-gradient(@direction, @start-color, @end-color);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start-color}', EndColorStr='@{end-color}');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start-color}', EndColorStr='@{end-color}')";
+}
+.size(@w, @h: auto, @m: normal) {
+	& when (@m = normal) {
+		width: @w;
+		height: @h;
+	}
+	& when not (@m = normal) {
+		@{m}-width: @w;
+		& when (isnumber(@h)) { @{m}-height: @h;}
+	}
+}
+.square(@boxsize, @m: normal) {
+	.size(@boxsize, @boxsize, @m);
+}
+.animation(@animName:rotation, @animTime:1s, @animLoop: infinite, @animType: linear){
+	animation:@animName @animTime @animLoop @animType;
+	-webkit-animation:@animName @animTime @animLoop @animType;
+	-moz-animation:@animName @animTime @animLoop @animType;
+	-o-animation:@animName @animTime @animLoop @animType;
+	-ms-animation:@animName @animTime @animLoop @animType;
+}
+.transform(@tranformType: scale(1)){
+	transform:@tranformType;
+	-webkit-transform:@tranformType;
+	-moz-transform:@tranformType;
+	-o-transform:@tranformType;
+	-ms-transform:@tranformType;
+}
+.rotate(@degrees: 180deg){
+  -webkit-transform:rotate(@degrees); -o-transform:rotate(@degrees); -ms-transform:rotate(@degrees); filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5); transform:rotate(@degrees);
+}
+.transition(@transType:all, @transTime:200ms, @transEffect:ease-in-out){
+	transition:@transType @transTime @transEffect;
+}
+.opacity(@opacity:0.7, @opacity-ie:70){
+	opacity:@opacity; filter:alpha(opacity=@opacity-ie); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{opacity-ie})";
+}
+.clearfix() {
+	&:after {
+		content: ''; display: table; clear: both;
+	}
+}
+.relative{
+	position: relative;
+}
+.absolute{
+	position: absolute;
+}
+.pull-left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}

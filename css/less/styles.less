@@ -1,0 +1,150 @@
+body{
+	font-family: sans-serif;
+}
+.container{
+	width: 900px;
+	margin: 40px auto 0 auto;
+	padding-bottom: 15px;
+	.clearfix;
+	h1{
+		text-align: center;
+		font-size: 25px;
+		margin-bottom: 20px;
+	}
+}
+
+.instructions{
+	font-size: 13px;
+	padding: 0 5%;
+	margin-top: 40px;
+	ul{
+		list-style-type: none;
+		padding-left: 5px;
+		>li{
+			margin-bottom: 10px;
+		}
+	}
+}
+.container-left{
+	width: 60%;
+	margin-top: 30px;
+}
+.container-right{
+	width: 40%;
+	margin-top: 30px;
+}
+#boardContainer{
+	.size(315px, 315px);
+	background: url("../img/board_bg.jpg");
+	border: 1px solid #8c7351;
+	margin: 40px 0 0 50px;
+	.radius(8px);
+	box-shadow: 4px 4px 0px 3px #8c7351;
+	padding: 10px;
+	z-index: 2;
+	.square{
+		.size(35px, 35px);
+		display: inline-block;
+		margin: 3px 5px;
+		border: 1px solid #8c7351;
+		box-sizing: border-box;
+		text-align: center;
+		line-height: 33px;
+		.radius(20px);
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		background: #67543b;
+		box-shadow:-2px -2px 0px 2px #d88e07 inset;
+		&.empty{
+			box-shadow:3px 2px 0px 3px #8c7351 inset;
+		}
+		&.active{
+			background: #fdb93c;
+			&.empty{
+				background: none;
+				box-shadow: none;
+			}
+			&.selected, &:hover{
+				background: #ffeb3b;
+			}
+		}
+		&.disabled{
+			visibility: hidden;
+			user-select: none;
+		}
+	}
+    &.blocked:before{
+        content: "";
+        .size(100%, 100%);
+        background: #CCC;
+        opacity: 0.6;
+        .absolute;
+        top:0;
+        left:0;
+    }
+}
+.options-panel{
+	width:110px;
+	margin: 40px 10px 0 0;
+	padding: 5px;
+	min-height: 320px;
+	.stat-counter{
+		font-size: 13px;
+		.counter{
+			border: 1px solid #03a9f4;
+			padding: 5px;
+			text-align: center;
+			margin: 5px 0 10px 0;
+			font-size: 17px;
+			font-family: "Orbitron", sans-serif;
+			.radius(4px);
+		}
+		.streak{
+			.size(25px, 25px);
+			background: red;
+			color: #FFF;
+			.radius(25px);
+			padding: 5px;
+			font-weight: bold;
+			box-sizing: border-box;
+			top: 15px;
+			right: -13px;
+			transition: all 0.2s ease-in-out;
+			transform: scale(0);
+			&.visible{
+				transform: scale(1);
+			}
+		}
+	}
+}
+.restart-game{
+	.size(100%, 35px);
+	background: #03a9f4;
+	color: #FFF;
+	border: 0;
+	.radius(4px);
+	outline: none;
+	cursor: pointer;
+	margin-bottom: 15px;
+}
+#message{
+	width: 344px;
+	min-height: 30px;
+	background: #fb7268;
+	color: #FFF;
+	right: 16px;
+	font-size: 13px;
+	text-align: center;
+	padding: 5px;
+	box-sizing: border-box;
+	.radius(5px);
+	top: 0;
+	z-index: 1;
+	transition: all 0.2s ease-in-out;
+	opacity: 0;
+	visibility: hidden;
+	&.visible{
+		opacity: 1;
+		visibility: visible;
+	}
+}
