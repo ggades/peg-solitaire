@@ -10,17 +10,17 @@ var PegSolitaire = (function() {
 	// Global vars
 	var pin = 0,
         rowPin = null,
-		points= 0,
-		movements = 0,
-		streak = 1,
-		activePin,
-		messageTimeout = null,
-		gameOver = true,
+        points= 0,
+        movements = 0,
+        streak = 1,
+        activePin,
+        messageTimeout = null,
+        gameOver = true,
         map = [],
         boardContainer = document.getElementById("boardContainer"),
-		divMovements = document.getElementById("totalMovements"),
-		divPoints = document.getElementById("totalPoints"),
-		divStreak = document.getElementById("streak");
+        divMovements = document.getElementById("totalMovements"),
+        divPoints = document.getElementById("totalPoints"),
+        divStreak = document.getElementById("streak");
 	
 	/**
 	 * Public funtions
@@ -70,7 +70,7 @@ var PegSolitaire = (function() {
 		 */
 		restartGame : function() {
             divMovements.innerHTML = "0";
-			divPoints.innerHTML = "0";
+            divPoints.innerHTML = "0";
 			divStreak.innerHTML = "0";
 			Helper.removeClass(divStreak, "visible");
             Helper.removeClass(boardContainer, "blocked");
@@ -265,6 +265,7 @@ var PegSolitaire = (function() {
                             gameOver = false;
                             break;
                         }else{
+                            console.log(indexHole);
                             gameOver = true;
                         }
                     }
@@ -274,6 +275,7 @@ var PegSolitaire = (function() {
                             gameOver = false;
                             break;
                         }else{
+                            console.log(indexHole);
                             gameOver = true;
                         }
                     }
@@ -284,6 +286,7 @@ var PegSolitaire = (function() {
                                 gameOver = false;
                                 break;
                             }else{
+                                console.log(indexHole);
                                 gameOver = true;
                             }
                         }
@@ -295,6 +298,7 @@ var PegSolitaire = (function() {
                                 gameOver = false;
                                 break;
                             }else{
+                                console.log(indexHole);
                                 gameOver = true;
                             }
                         }
