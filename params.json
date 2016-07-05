@@ -1,6 +1,0 @@
-{
-  "name": "PegJS",
-  "tagline": "Peg solitaire game (HTML + JS)",
-  "body": "# peg-solitaire\r\n<strong>Peg solitaire game (HTML + JS)</strong>\r\n\r\n<p>Popular game Peg Solitaire, developed with HTML and Javascript.</p><br/>\r\n\r\n<div>Clone:</div>\r\n**`git clone https://github.com/ggades/peg-solitaire.git`**\r\n\r\n<div>Install dependencies for grunt:</div>\r\n**`npm install`**\r\n\r\n",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
