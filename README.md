@@ -7,8 +7,8 @@
 <a href="//ggades.github.io/peg-solitaire" target="_blank">ggades.github.io/peg-solitaire</a>
 
 <div>Clone:</div>
-**`git clone https://github.com/ggades/peg-solitaire.git`**
+`git clone https://github.com/ggades/peg-solitaire.git`
 
 <div>Install dependencies for grunt:</div>
-**`npm install`**
+`npm install`
 
